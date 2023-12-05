@@ -1,0 +1,16 @@
+.hero-list {
+  list-style: none;
+}
+.hero-list h5::before {
+  font-size: 1.5rem;
+  content: "\2022";
+  color: $cyan;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1em;
+}
+
+.hero-heading {
+  font-size: 3rem;
+}

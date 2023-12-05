@@ -1,11 +1,7 @@
 @import "variables"; /* /src/scss/_variables.scss */
+@import "hero"; /* src/scss/_heroList  */
+@import "icons"; /* src/scss/_icons.scss   */
+@import "buttons"; /* src/scss/_buttons.scss */
+@import "globalItems"; /*src/scss/_globlItems.scss */
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/functions";
-
-.btn-custom {
-  @extend .btn-warning;
-
-  &:hover {
-    @extend .btn-danger;
-  }
-}

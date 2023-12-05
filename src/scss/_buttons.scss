@@ -1,0 +1,6 @@
+.btn-custom {
+  @extend .btn-danger, .text-white;
+  &:hover {
+    @extend .btn-info, .text-dark;
+  }
+}
