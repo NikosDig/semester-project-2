@@ -5,3 +5,11 @@
   text-decoration: underline;
   text-decoration-color: $cyan;
 }
+
+.auctionItemImage {
+  background-image: url(../../assets/images/heading_img-1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 75vh;
+}
