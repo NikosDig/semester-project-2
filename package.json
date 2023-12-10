@@ -1,6 +1,6 @@
 {
   "name": "semester-project-2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.  When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items",
   "main": "index.js",
   "scripts": {
