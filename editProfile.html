@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/icons/logo.png" />
-    <title>Home || Find</title>
+    <title>EDIT PROFILE || Find</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,7 +39,7 @@
                 />
               </a>
             </div>
-            <div class="align-self-center p-2 border-bottom">
+            <div class="align-self-center p-2">
               <a href="auctions.html" title="Auctions page">
                 <img
                   class="icon"
@@ -48,7 +48,7 @@
                 />
               </a>
             </div>
-            <div class="align-self-center p-2">
+            <div class="align-self-center p-2 border-bottom">
               <a href="profile.html" title="Profile page">
                 <img
                   class="icon"
@@ -99,16 +99,16 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" title="Profile page" href="profile.html"
+                  <a
+                    class="nav-link"
+                    aria-current="page"
+                    title="Profile page"
+                    href="profile.html"
                     >Profile</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    aria-current="page"
-                    title="Auctions page"
-                    href="auctions.html"
+                  <a class="nav-link" title="Auctions page" href="auctions.html"
                     >Auctions</a
                   >
                 </li>
@@ -134,66 +134,49 @@
     </header>
     <main>
       <div class="container">
-        <div class="row d-flex flex-column">
+        <div class="row my-5 d-flex">
           <div
-            class="col-12 d-flex flex-column flex-sm-row align-items-center gap-5 p-5"
+            class="col-12 d-flex flex-column flex-sm-row align-items-center gap-2 my-5"
           >
-            <div class="col-12 col-sm-6 bg-white mt-5 auctionItemImage">
-              <img src="" alt="" />
+            <div class="col-12 col-sm-4 text-center text-md-start h3">
+              <h1 class="h2">John Doe</h1>
             </div>
-            <div class="col-12 col-sm-6 d-flex flex-column align-items-center">
-              <h1 class="h2 text-uppercase text-decoration-underline-info mb-3">
-                fine statue
-              </h1>
-              <h2 class="h5 text-uppercase">
-                Time remaining: <span>3W 5D 23H 32M</span>
-              </h2>
-              <h3 class="h5 text-uppercase">
-                latest bid: <span>100 Nok</span>
-              </h3>
-              <h4 class="h2 text-uppercase text-decoration-underline-info mt-5">
-                description
-              </h4>
-              <p class="h5 p-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised i
-              </p>
-              <div
-                class="col-12 col-sm-6 d-flex flex-column flex-sm-row w-100 justify-content-between"
-              >
-                <form
-                  action=""
-                  class="w-100 d-flex justify-content-evenly flex-column flex-sm-row mt-3"
-                >
+            <div class="col-12 col-sm-4 align-self-center">
+              <form action="">
+                <div class="col-auto">
+                  <label for="url" class="visually-hidden">New image url</label>
                   <input
-                    type="number"
-                    id="bid"
-                    name="bid"
-                    step="0.5"
-                    min="0.5"
-                    required
-                    class="rounded-4 p-1 m-3"
+                    type="url"
+                    class="form-control"
+                    id="url"
+                    placeholder="New image url"
                   />
-                  <input
+                </div>
+                <div class="col-auto my-3">
+                  <button
                     type="submit"
-                    value="make bid"
-                    class="btn btn-custom text-capitalize m-3"
-                  />
-                </form>
-              </div>
+                    class="btn btn-custom mb-3 mx-auto d-block"
+                  >
+                    Confirm change
+                  </button>
+                </div>
+              </form>
             </div>
+            <div class="col-12 col-sm-4 text-center text-md-end h3">
+              <h2 class="h2">test@test.com</h2>
+            </div>
+          </div>
+          <div class="col-12 text-center py-4">
+            <h3 class="text-uppercase text-center h2">
+              credits: <span>700</span>
+            </h3>
           </div>
         </div>
       </div>
     </main>
-    <footer class="d-block mt-3 p-3 text-bg-primary">
+    <footer class="d-block mt-3 px-3 text-bg-primary sticky-custom-bottom">
       <section
-        class="d-flex flex-column flex-sm-row container justify-content-between align-items-center"
+        class="d-flex flex-column flex-sm-row container justify-content-between align-items-center w-75"
       >
         <div class="row d-flex flex-column">
           <div class="col-12 d-flex flex-row p-3">

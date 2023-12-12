@@ -13,3 +13,9 @@
   background-size: contain;
   height: 75vh;
 }
+
+.sticky-custom-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
