@@ -1,4 +1,4 @@
-const API_URL = "https://api.noroff.dev/api/v1/auction";
+import { API_URL } from "./../api/api.mjs";
 
 const signUpForm = document.querySelector(".signUpForm");
 
