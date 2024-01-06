@@ -142,7 +142,9 @@
             <h1 class="text-decoration-underline-info">Sign Up</h1>
           </div>
           <form
-            class="g-3 d-flex flex-column align-items-center mt-1 mb-5 bg-light p-4"
+            class="g-3 d-flex flex-column align-items-center mt-1 mb-5 bg-light p-4 signUpForm"
+            action="/auth/register"
+            method="post"
           >
             <div class="col-11 col-md-6 my-3">
               <label for="signUpEmail" class="form-label">Email</label>
@@ -150,6 +152,7 @@
                 type="text"
                 class="form-control"
                 id="signUpEmail"
+                name="email"
                 placeholder="test@test.com"
                 value=""
                 required
@@ -161,6 +164,7 @@
                 type="password"
                 class="form-control"
                 id="signUpPassword"
+                name="password"
                 placeholder="12345678"
                 value=""
                 required
@@ -171,7 +175,8 @@
               <input
                 type="text"
                 class="form-control"
-                id="name"
+                id="signUpName"
+                name="name"
                 placeholder="John Doe"
                 value=""
                 required
@@ -182,8 +187,9 @@
               <input
                 type="text"
                 class="form-control"
-                id="avatar"
-                placeholder="https://..."
+                id="signUpAvatar"
+                name="avater"
+                placeholder="https://...(url of the picture)"
                 value=""
                 required
               />
@@ -195,6 +201,18 @@
               >
                 Sign Up
               </button>
+            </div>
+            <div class="col-12 text-center m-2">
+              <h6>
+                You allready have an account? Sign in
+                <span
+                  ><a
+                    href="logIn.html"
+                    class="text-decoration-underline-info text-info"
+                    >here</a
+                  ></span
+                >
+              </h6>
             </div>
           </form>
         </div>
@@ -235,5 +253,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="javascript/pagesMainFile/signUp.mjs"></script>
   </body>
 </html>
