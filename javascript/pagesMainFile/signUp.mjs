@@ -1,4 +1,5 @@
 import { API_URL } from "./../api/api.mjs";
+import { logOUt } from "../storageJWT/logOut.mjs";
 
 const signUpForm = document.querySelector(".signUpForm");
 
@@ -57,3 +58,5 @@ function redirectUserToLogInPage(response) {
     );
   }
 }
+
+logOUt();

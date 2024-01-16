@@ -1,4 +1,5 @@
 import { API_URL } from "./../api/api.mjs";
+import { logOUt } from "../storageJWT/logOut.mjs";
 
 import * as JWT from "./../storageJWT/index.mjs";
 const loginForm = document.querySelector(".loginForm");
@@ -50,3 +51,5 @@ async function loginUser(profile) {
     console.log(error);
   }
 }
+
+logOUt();

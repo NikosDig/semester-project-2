@@ -24,3 +24,21 @@
   width: 100%;
   height: 300px;
 }
+.fixedSizeCard {
+  max-width: 279px;
+  max-height: 509px;
+}
+.fixedCardBody {
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  padding: 0 !important;
+}
+
+.fixedCardFooter {
+  width: 100%;
+  height: 60px;
+}
+.wordWrap {
+  word-wrap: normal;
+}
