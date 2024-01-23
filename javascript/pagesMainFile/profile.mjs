@@ -15,7 +15,7 @@ const loadUser = async () => {
 
 // Call the async function to load the user data
 loadUser().then((user) => {
-  // console.log(user);
+  console.log(user);
 
   // Call the fixProfile function after the user data is loaded
   fixProfile(user);

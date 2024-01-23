@@ -152,7 +152,7 @@
               <h2 class="h2 profileName">John Doe</h2>
             </div>
             <div class="col-12 col-sm-4 align-self-center">
-              <form action="">
+              <form id="updateImageForm">
                 <div class="col-auto">
                   <label for="url" class="visually-hidden">New image url</label>
                   <input
@@ -160,12 +160,13 @@
                     class="form-control"
                     id="url"
                     placeholder="New image url"
+                    name="avatar"
                   />
                 </div>
                 <div class="col-auto my-3">
                   <button
                     type="submit"
-                    class="btn btn-custom mb-3 mx-auto d-block"
+                    class="btn btn-custom mb-3 mx-auto d-block editProfileSubmitButton"
                   >
                     Confirm change
                   </button>
