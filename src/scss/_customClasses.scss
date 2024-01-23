@@ -42,3 +42,17 @@
 .wordWrap {
   word-wrap: normal;
 }
+
+.profileImage {
+  max-width: 300px !important;
+  max-height: 370px !important;
+}
+
+#createListingForm {
+  max-width: 1200px;
+}
+
+.card-title {
+  max-width: 277px !important;
+  overflow: hidden !important;
+}

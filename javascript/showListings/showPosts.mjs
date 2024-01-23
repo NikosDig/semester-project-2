@@ -1,54 +1,46 @@
-/**
- * Retrieves the last 100 posts that have been created from the Noroff Auction API.
- *
- * @returns {Promise<Object[]>} - A promise that resolves to an array containing information about the last 100 posts.
- *
- * @example
- * // Example usage:
- * try {
- *   const posts = await showPosts();
- *   console.log(posts);
- * } catch (error) {
- *   console.error("Error retrieving posts:", error);
- *   alert("There was an error. Please try again later.");
- * }
- */
-export async function showPosts() {
-  /**
-   * The base URL of the Noroff Auction API.
-   * @type {string}
-   */
-  const API_URL = "https://api.noroff.dev/api/v1/auction";
+// /**
+//  * Retrieves posts from the Noroff Auction API with optional pagination.
+//  *
+//  * @param {number} limit - The number of results to return.
+//  * @param {number} offset - The number of results to skip.
+//  * @returns {Promise<Object[]>} - A promise that resolves to an array containing information about the requested posts.
+//  */
+// export async function showPosts(limit = 100, offset = 0) {
+//   const API_URL = "https://api.noroff.dev/api/v1/auction";
+//   const url = `${API_URL}/listings/?limit=${limit}&offset=${offset}`;
 
-  /**
-   * The complete URL for fetching the last 100 posts from the API.
-   * @type {string}
-   */
-  const url = API_URL + "/listings/";
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error("There was an error:", error);
+//     alert("There was an error. Please try again later.");
+//   }
+// }
+/**
+ * Retrieves posts from the Noroff Auction API with optional pagination and sorting.
+ *
+ * @param {number} limit - The number of results to return.
+ * @param {number} offset - The number of results to skip.
+ * @param {string} sort - The field to sort by.
+ * @param {string} sortOrder - The sort order (asc or desc).
+ * @returns {Promise<Object[]>} - A promise that resolves to an array containing information about the requested posts.
+ */
+export async function showPosts(
+  limit = 100,
+  offset = 0,
+  sort = "created",
+  sortOrder = "desc"
+) {
+  const API_URL = "https://api.noroff.dev/api/v1/auction";
+  const url = `${API_URL}/listings/?limit=${limit}&offset=${offset}&sort=${sort}&sortOrder=${sortOrder}`;
 
   try {
-    /**
-     * Fetch data from the API.
-     * @type {Response}
-     */
     const response = await fetch(url);
-
-    /**
-     * Parse the response data as JSON.
-     * @type {Object}
-     */
     const data = await response.json();
-
-    /**
-     * Log the retrieved data and return it.
-     * @type {Object[]}
-     */
-    //console.log(data);
     return data;
   } catch (error) {
-    /**
-     * Log an error message and display an alert in case of an error.
-     */
     console.error("There was an error:", error);
     alert("There was an error. Please try again later.");
   }
