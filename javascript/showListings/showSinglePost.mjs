@@ -47,7 +47,7 @@ export async function showOnePost(id) {
      * @type {Object}
      */
     if (response.ok) {
-      console.log(data);
+      //console.log(data);
       return data;
     } else {
       /**

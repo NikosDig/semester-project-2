@@ -24,6 +24,10 @@ async function createPost(postData) {
     });
     const result = await response.json();
     console.log(result);
+    // Alert the user that the listing is created
+    alert("Listing created successfully!");
+    // Reset the form values
+    createListingForm.reset();
     return result;
   } catch (error) {
     console.log("There was an error", error);
