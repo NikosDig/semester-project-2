@@ -31,7 +31,32 @@ async function displayAuctionItem() {
       timeRemaining.innerText = `${timeLeft.days}D ${timeLeft.hours}H ${timeLeft.minutes}M`;
     }
     if (description) description.innerText = item.description;
-    if (bids) bids.innerText = bidText;
+    if (bids) bids.innerText = bidText + " Times";
+
+    // Update bids
+    const bidsContainer = document.querySelector(".auctionItemBidsContainer");
+    bidsContainer.innerHTML = ""; // Clear existing bids
+
+    if (item.bids && item.bids.length > 0) {
+      item.bids.forEach((bid, index) => {
+        const bidElement = document.createElement("div");
+        bidElement.classList.add("bid");
+
+        const bidInfo = document.createElement("span");
+
+        // Conditionally determine whether to use "Credit" or "Credits"
+        const creditText = bid.amount === 1 ? "Credit" : "Credits";
+
+        bidInfo.innerText = `Bid Amount: ${index + 1} ${creditText} from ${
+          bid.bidderName
+        }`;
+
+        bidElement.appendChild(bidInfo);
+        bidsContainer.appendChild(bidElement);
+      });
+    } else {
+      bidsContainer.innerHTML = "No bids placed yet.";
+    }
 
     // Get the carousel element
     const carousel = document.querySelector("#carouselExampleIndicators");

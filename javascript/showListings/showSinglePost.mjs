@@ -27,7 +27,7 @@ export async function showOnePost(id) {
    * The complete URL for fetching information about a specific post from the API.
    * @type {string}
    */
-  const url = `${API_URL}/listings/${id}`;
+  const url = `${API_URL}/listings/${id}?_bids=true`;
 
   try {
     /**
