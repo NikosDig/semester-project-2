@@ -137,12 +137,12 @@
     </header>
     <main>
       <div class="container">
-        <div class="row my-5 d-flex">
+        <div class="row my-5 d-flex userLogedIn">
           <div
             class="col-12 d-flex flex-column flex-sm-row align-items-center gap-2 my-5 text-break"
           >
             <div class="col-4 text-center h3">
-              <h1 class="h2 profileName">John Doe</h1>
+              <h1 class="h2 profileName"></h1>
             </div>
             <div class="col-4">
               <img
@@ -152,12 +152,12 @@
               />
             </div>
             <div class="col-4 text-center text-md-end h3">
-              <h2 class="h2 profileEmail text-center">test@test.com</h2>
+              <h2 class="h2 profileEmail text-center"></h2>
             </div>
           </div>
           <div class="col-12 text-center my-2">
             <h3 class="text-uppercase text-center h2">
-              credits: <span class="profileCredits">700</span>
+              credits: <span class="profileCredits"></span>
             </h3>
           </div>
           <div class="col-12 col-sm-6 text-center my-2">
@@ -186,6 +186,14 @@
               </h4>
             </a>
           </div>
+        </div>
+        <div class="col-12 userNotLogedIn d-none">
+          <h2 class="text-center mt-5 pt-5">
+            You need to log in to see your profile
+          </h2>
+          <h3 class="text-center mt-3 pt-3">
+            Log in <a href="logIn.html" class="btn btn-custom">here</a>
+          </h3>
         </div>
       </div>
     </main>
