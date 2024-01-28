@@ -1,23 +1,3 @@
-// /**
-//  * Retrieves posts from the Noroff Auction API with optional pagination.
-//  *
-//  * @param {number} limit - The number of results to return.
-//  * @param {number} offset - The number of results to skip.
-//  * @returns {Promise<Object[]>} - A promise that resolves to an array containing information about the requested posts.
-//  */
-// export async function showPosts(limit = 100, offset = 0) {
-//   const API_URL = "https://api.noroff.dev/api/v1/auction";
-//   const url = `${API_URL}/listings/?limit=${limit}&offset=${offset}`;
-
-//   try {
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("There was an error:", error);
-//     alert("There was an error. Please try again later.");
-//   }
-// }
 /**
  * Retrieves posts from the Noroff Auction API with optional pagination and sorting.
  *
@@ -30,11 +10,11 @@
 export async function showPosts(
   limit = 100,
   offset = 0,
-  sort = "created",
-  sortOrder = "desc"
+  sort = "endsAt",
+  sortOrder = "asc"
 ) {
   const API_URL = "https://api.noroff.dev/api/v1/auction";
-  const url = `${API_URL}/listings/?limit=${limit}&offset=${offset}&sort=${sort}&sortOrder=${sortOrder}`;
+  const url = `${API_URL}/listings/?limit=${limit}&offset=${offset}&sort=${sort}&sortOrder=${sortOrder}&_active=true`;
 
   try {
     const response = await fetch(url);

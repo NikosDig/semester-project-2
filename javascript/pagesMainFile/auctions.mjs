@@ -2,8 +2,10 @@ const feedContainer = document.querySelector(".feedContainer");
 import { showPosts } from "../showListings/showPosts.mjs";
 import { renderPosts } from "../renderHTML.mjs/renderPosts.mjs";
 import { logOUt } from "../storageJWT/logOut.mjs";
+import { searchByTitle } from "../searchFunction/searchByTitle.mjs";
 
 let offset = 100; // Initialize offset
+let allPosts = [];
 
 feedContainer.innerHTML = `
   <div class="loading-container justify-content-center">
@@ -25,8 +27,11 @@ showMore.addEventListener("click", async () => {
   try {
     // Fetch additional posts with the current offset
     const additionalPosts = await showPosts(100, offset, "created", "asc");
+    // console.log(additionalPosts);
 
-    console.log(additionalPosts);
+    // Concatenate the additional posts with the existing ones
+    allPosts = allPosts.concat(additionalPosts);
+    console.log(allPosts); // Test search with all posts
 
     // Render and append the additional posts
     await Promise.all(
@@ -38,6 +43,35 @@ showMore.addEventListener("click", async () => {
   } catch (error) {
     console.error("Error fetching or rendering additional posts:", error);
     alert("There was an error. Please try again later.");
+  }
+});
+
+// search
+const searchForm = document.getElementById("searchForm");
+
+searchForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const searchInput = document.getElementById("searchInput");
+  const searchTerm = searchInput.value.trim();
+
+  if (searchTerm !== "") {
+    try {
+      // Fetch posts matching the search term
+      const searchResults = await showPosts();
+      const filteredResults = searchByTitle(searchTerm, searchResults);
+
+      // Clear the feed container before rendering search results
+      feedContainer.innerHTML = "";
+
+      // Render and append search results
+      await Promise.all(
+        filteredResults.map((result) => renderPosts(result, feedContainer))
+      );
+    } catch (error) {
+      console.error("Error fetching or rendering search results:", error);
+      alert("There was an error. Please try again later.");
+    }
   }
 });
 

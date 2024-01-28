@@ -11,7 +11,9 @@ async function createPost(postData) {
   postData.tags = postData.tags
     ? postData.tags.split(",").map((tag) => tag.trim())
     : [];
-  postData.media = postData.media ? [postData.media] : [];
+  postData.media = postData.media
+    ? postData.media.split(",").map((url) => url.trim())
+    : [];
 
   try {
     const response = await fetch(url, {

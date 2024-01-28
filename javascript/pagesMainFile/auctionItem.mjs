@@ -13,6 +13,7 @@ const id = params.get("id");
 async function displayAuctionItem(callback) {
   try {
     const item = await fetchAuctionItemDetails(id);
+    console.log(item);
 
     updateTitleAndMeta(item);
 
