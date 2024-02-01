@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pagesMainFile/index.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pagesMainFile/index.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { showPosts } from "../showListings/showPosts.mjs";
+import { getRandomPosts } from "../showListings/getRandomPosts.mjs";
+import { renderPosts } from "../renderHTML.mjs/renderPosts.mjs";
+import { logOUt } from "../storageJWT/logOut.mjs";
+const feedContainer = document.querySelector(".fourPostsContainer");
+
+/**
+ * Asynchronously fetches the last 100 posts from the Noroff Auction API and selects a specified number of random posts.
+ *
+ * @param {number} count - The number of random posts to select.
+ * @returns {Promise&lt;Object[]>} - A promise that resolves to an array containing randomly selected posts.
+ *
+ * @throws {Error} - Throws an error if there is an issue fetching or selecting random posts.
+ *
+ * @example
+ * // Example usage:
+ * try {
+ *   const randomPosts = await fetchAndSelectRandomPosts(4);
+ *   console.log(randomPosts);
+ *   // Now, you can use randomPosts to display the random posts on your webpage.
+ * } catch (error) {
+ *   console.error("Error retrieving and selecting random posts:", error);
+ *   alert("There was an error. Please try again later.");
+ * }
+ */
+async function fetchAndSelectRandomPosts(count) {
+  try {
+    const posts = await showPosts();
+    return getRandomPosts(posts, count);
+  } catch (error) {
+    console.error("Error retrieving and selecting random posts:", error);
+    throw new Error("Error fetching and selecting random posts.");
+  }
+}
+
+// Usage:
+try {
+  const randomPosts = await fetchAndSelectRandomPosts(4);
+  // Now, you can use randomPosts to display the random posts on your webpage.
+  showAllThePostsOnThePage();
+} catch (error) {
+  console.error("Error retrieving and selecting random posts:", error);
+  alert("There was an error. Please try again later.");
+}
+
+/**
+ * Fetches post data from the API, renders the posts using the renderPosts function, and handles the display of a loading spinner during the fetching process.
+ *
+ * @returns {Promise&lt;void>} A promise representing the asynchronous execution of the function.
+ *
+ * @throws {Error} Throws an error if there is an issue fetching or displaying posts.
+ *
+ * @sideeffects Modifies the HTML content of .feedContainer to display the fetched posts.
+ * Displays a loading spinner while fetching data.
+ */
+async function showAllThePostsOnThePage() {
+  const loadingSpinner = document.querySelector(".loading-container");
+
+  try {
+    const randomPosts = await fetchAndSelectRandomPosts(4);
+
+    // Render each of the 4 random posts
+    randomPosts.forEach((post) => renderPosts(post, feedContainer));
+  } catch (error) {
+    console.error("Error fetching and displaying posts:", error);
+    alert("There was an error. Please try again later.");
+  }
+}
+
+logOUt();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#calculateTimeLeft">calculateTimeLeft</a></li><li><a href="global.html#checkUserLoggedIn">checkUserLoggedIn</a></li><li><a href="global.html#createBid">createBid</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayAuctionItem">displayAuctionItem</a></li><li><a href="global.html#fetchAndSelectRandomPosts">fetchAndSelectRandomPosts</a></li><li><a href="global.html#fetchAuctionItemDetails">fetchAuctionItemDetails</a></li><li><a href="global.html#fixProfile">fixProfile</a></li><li><a href="global.html#fixProfileForEditProfilePage">fixProfileForEditProfilePage</a></li><li><a href="global.html#getRandomPosts">getRandomPosts</a></li><li><a href="global.html#loadJWT">loadJWT</a></li><li><a href="global.html#logOUt">logOUt</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#redirectUserToLogInPage">redirectUserToLogInPage</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#renderPosts">renderPosts</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#searchByTitle">searchByTitle</a></li><li><a href="global.html#showAllThePostsOnThePage">showAllThePostsOnThePage</a></li><li><a href="global.html#showOnePost">showOnePost</a></li><li><a href="global.html#showPosts">showPosts</a></li><li><a href="global.html#updateBidDisplay">updateBidDisplay</a></li><li><a href="global.html#updateBidForm">updateBidForm</a></li><li><a href="global.html#updateCarousel">updateCarousel</a></li><li><a href="global.html#updateTitleAndMeta">updateTitleAndMeta</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 01 2024 12:26:24 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
