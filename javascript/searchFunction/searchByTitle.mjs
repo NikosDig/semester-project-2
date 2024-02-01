@@ -6,7 +6,7 @@
  * @returns {Array} - An array of search results that match the title containing the search query.
  */
 export function searchByTitle(query, items) {
-  const searchTerm = query.toLowerCase();
+  const searchTerm = query.trim().toLowerCase();
 
   // Filter items based on the title containing the search term
   const searchResults = items.filter((item) =>

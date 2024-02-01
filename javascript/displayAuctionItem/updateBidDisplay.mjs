@@ -19,9 +19,9 @@ export function updateBidDisplay(bidsContainer, item) {
 
       const creditText = bid.amount === 1 ? "Credit" : "Credits";
 
-      bidInfo.innerText = `Bid ${index + 1}:  ${
-        bid.amount
-      } ${creditText} from ${bid.bidderName}`;
+      bidInfo.innerText = `Bid ${index + 1}: ${bid.amount} ${creditText} from ${
+        bid.bidderName
+      }`.trim();
 
       bidElement.appendChild(bidInfo);
       bidsContainer.appendChild(bidElement);

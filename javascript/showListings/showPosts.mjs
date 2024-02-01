@@ -22,6 +22,6 @@ export async function showPosts(
     return data;
   } catch (error) {
     console.error("There was an error:", error);
-    alert("There was an error. Please try again later.");
+    throw new Error("There was an error fetching posts: " + error.message);
   }
 }

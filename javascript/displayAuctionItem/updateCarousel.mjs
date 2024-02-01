@@ -27,8 +27,8 @@ export function updateCarousel(carousel, item) {
       carousel.appendChild(carouselItem);
     });
 
-    // Initialize the Bootstrap Carousel
-    new bootstrap.Carousel(carousel);
+    // // Initialize the Bootstrap Carousel
+    // new bootstrap.Carousel(carousel);
   } else {
     // If no media items are available, display a default image
     const defaultItem = document.createElement("div");
