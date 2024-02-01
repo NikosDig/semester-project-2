@@ -24,6 +24,13 @@
  * @returns {Object[]} - An array containing randomly selected posts.
  */
 export function getRandomPosts(allPosts, count) {
+  const totalPosts = allPosts.length;
+
+  if (count >= totalPosts) {
+    // If count is greater than or equal to the total number of posts, return a copy of allPosts
+    return [...allPosts];
+  }
+
   const randomPosts = [];
   const postsCopy = [...allPosts];
 

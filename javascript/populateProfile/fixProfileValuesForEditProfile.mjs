@@ -31,5 +31,5 @@ export function fixProfileForEditProfilePage(user) {
    */
   profileName.innerText = user.name;
   profileEmail.innerText = user.email;
-  profileCredits.innerText = user.credits;
+  profileCredits.innerText = user.credits.toString();
 }

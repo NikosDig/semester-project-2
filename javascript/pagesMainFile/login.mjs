@@ -4,11 +4,8 @@ import { logOUt } from "../storageJWT/logOut.mjs";
 import * as JWT from "./../storageJWT/index.mjs";
 const loginForm = document.querySelector(".loginForm");
 
-// test1000@stud.noroff.no
-// test1000
-
 /**
- * main function that creates the profiile object which is added to the api call
+ * Main function that creates the profile object which is added to the API call
  * to create a new user
  */
 loginForm.addEventListener("submit", async (e) => {
@@ -18,16 +15,15 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     const profile = Object.fromEntries(formData.entries());
     await loginUser(profile);
-    location.href = "/";
   } catch (error) {
-    alert("There was en error", error);
+    alert("There was an error: " + error);
   }
 });
 
 /**
- *
+ * Function to handle login and redirect
  * @param {object} profile
- * takes the data from the form entries and makes an asynchronous
+ * Takes the data from the form entries and makes an asynchronous
  * call to the API to login a new user
  */
 async function loginUser(profile) {
@@ -42,13 +38,40 @@ async function loginUser(profile) {
       body: JSON.stringify(profile),
     });
 
-    const { accessToken, ...user } = await response.json();
+    if (response.ok) {
+      const { accessToken, ...user } = await response.json();
 
-    JWT.save("token", accessToken);
-    JWT.save("user", user);
-    console.log("all went well");
+      JWT.save("token", accessToken);
+      JWT.save("user", user);
+      console.log("all went well");
+
+      // Redirect only when login is successful
+      location.href = "/";
+    } else {
+      await handleLoginFailure(response);
+    }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    alert("Something went wrong. Please try again.");
+  }
+}
+
+/**
+ * Function to handle login failure and show appropriate alerts.
+ * @param {Response} response
+ */
+async function handleLoginFailure(response) {
+  try {
+    const data = await response.json();
+    if (data && data.errors && data.errors.length > 0) {
+      const errorMessage = data.errors[0].message;
+      alert(`Login failed: ${errorMessage}`);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error parsing response:", error);
+    alert("Something went wrong. Please try again.");
   }
 }
 

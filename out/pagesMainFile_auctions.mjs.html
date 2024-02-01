@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pagesMainFile/auctions.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pagesMainFile/auctions.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const feedContainer = document.querySelector(".feedContainer");
+import { showPosts } from "../showListings/showPosts.mjs";
+import { renderPosts } from "../renderHTML.mjs/renderPosts.mjs";
+import { logOUt } from "../storageJWT/logOut.mjs";
+import { searchByTitle } from "../searchFunction/searchByTitle.mjs";
+
+// Initialize offset for fetching additional posts
+let offset = 100;
+// Array to store all posts
+let allPosts = [];
+
+// Set loading message while posts are being fetched
+feedContainer.innerHTML = `
+  &lt;div class="loading-container justify-content-center">
+    &lt;div class="loading">&lt;/div>
+    &lt;div id="loading-text">loading&lt;/div>
+  &lt;/div>`;
+
+/**
+ * Function to fetch and display all posts on the page.
+ *
+ * @returns {Array} - Array of post data.
+ */
+async function showAllThePostsOnThePage() {
+  const loadingSpinner = document.querySelector(".loading-container");
+  loadingSpinner.style.display = "flex";
+  // Fetch all posts
+  const postData = await showPosts();
+  // Hide loading spinner
+  loadingSpinner.style.display = "none";
+  // Render and append all posts
+  return postData.map((x) => renderPosts(x, feedContainer));
+}
+
+const showMore = document.querySelector(".showMore");
+
+showMore.addEventListener("click", async () => {
+  try {
+    // Fetch additional posts with the current offset
+    const additionalPosts = await showPosts(100, offset, "created", "asc");
+    // console.log(additionalPosts);
+
+    // Concatenate the additional posts with the existing ones
+    allPosts = allPosts.concat(additionalPosts);
+    console.log(allPosts); // Test search with all posts
+
+    // Render and append the additional posts
+    await Promise.all(
+      additionalPosts.map((post) => renderPosts(post, feedContainer))
+    );
+
+    // Increment offset for the next set of posts
+    offset += 100;
+  } catch (error) {
+    console.error("Error fetching or rendering additional posts:", error);
+    alert("There was an error. Please try again later.");
+  }
+});
+
+// Event listener for the search form
+const searchForm = document.getElementById("searchForm");
+
+searchForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  // Get search input
+  const searchInput = document.getElementById("searchInput");
+  const searchTerm = searchInput.value.trim();
+
+  if (searchTerm !== "") {
+    try {
+      // Fetch posts matching the search term
+      const searchResults = await showPosts();
+      // Filter posts based on the search term
+      const filteredResults = searchByTitle(searchTerm, searchResults);
+
+      // Clear the feed container before rendering search results
+      feedContainer.innerHTML = "";
+
+      // Render and append search results
+      await Promise.all(
+        filteredResults.map((result) => renderPosts(result, feedContainer))
+      );
+    } catch (error) {
+      console.error("Error fetching or rendering search results:", error);
+      alert("There was an error. Please try again later.");
+    }
+  }
+});
+
+// Initial load of posts when the page loads
+showAllThePostsOnThePage();
+
+// Log out the user
+logOUt();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#calculateTimeLeft">calculateTimeLeft</a></li><li><a href="global.html#checkUserLoggedIn">checkUserLoggedIn</a></li><li><a href="global.html#createBid">createBid</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayAuctionItem">displayAuctionItem</a></li><li><a href="global.html#fetchAndSelectRandomPosts">fetchAndSelectRandomPosts</a></li><li><a href="global.html#fetchAuctionItemDetails">fetchAuctionItemDetails</a></li><li><a href="global.html#fixProfile">fixProfile</a></li><li><a href="global.html#fixProfileForEditProfilePage">fixProfileForEditProfilePage</a></li><li><a href="global.html#getRandomPosts">getRandomPosts</a></li><li><a href="global.html#loadJWT">loadJWT</a></li><li><a href="global.html#logOUt">logOUt</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#redirectUserToLogInPage">redirectUserToLogInPage</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#renderPosts">renderPosts</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#searchByTitle">searchByTitle</a></li><li><a href="global.html#showAllThePostsOnThePage">showAllThePostsOnThePage</a></li><li><a href="global.html#showOnePost">showOnePost</a></li><li><a href="global.html#showPosts">showPosts</a></li><li><a href="global.html#updateBidDisplay">updateBidDisplay</a></li><li><a href="global.html#updateBidForm">updateBidForm</a></li><li><a href="global.html#updateCarousel">updateCarousel</a></li><li><a href="global.html#updateTitleAndMeta">updateTitleAndMeta</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 01 2024 12:26:24 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

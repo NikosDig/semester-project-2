@@ -4,7 +4,7 @@ import { logOUt } from "../storageJWT/logOut.mjs";
 const signUpForm = document.querySelector(".signUpForm");
 
 /**
- * main function that creates the profiile object which is added to the api call
+ * main function that creates the profile object which is added to the API call
  * to create a new user
  */
 signUpForm.addEventListener("submit", (e) => {
@@ -24,7 +24,7 @@ signUpForm.addEventListener("submit", (e) => {
  */
 async function registerUser(profile) {
   try {
-    const url = API_URL + "/auth/register";
+    const url = `${API_URL}/auth/register`;
 
     const response = await fetch(url, {
       headers: {
@@ -33,28 +33,51 @@ async function registerUser(profile) {
       method: "post",
       body: JSON.stringify(profile),
     });
-    if (response.ok) {
-      const data = await response.json();
-      setTimeout(() => redirectUserToLogInPage(response), 3000);
+
+    if (response.status === 201) {
+      alert(
+        "Register user successful, you are being redirected to the login page"
+      );
+      setTimeout(() => {
+        redirectUserToLogInPage();
+      }, 3000);
+    } else {
+      handleRegistrationFailure(response);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    alert(
+      "Something went wrong. Check if you filled the fields correctly and try again."
+    );
   }
 }
 
 /**
- *
- * @param {object} response
- * checks if the request was succesfull and if yes redirects the user to login page
- * if not ,alerts him about the fail
+ * Redirects the user to the login page after registration.
  */
-function redirectUserToLogInPage(response) {
-  if (response.ok) {
-    location.href = "../../logIn.html";
-    alert("Register user successfull,you are beeing redirected to login page");
-  } else {
+function redirectUserToLogInPage() {
+  location.href = "../../logIn.html";
+}
+
+/**
+ * Handles registration failure and shows appropriate alerts.
+ * @param {Response} response
+ */
+async function handleRegistrationFailure(response) {
+  try {
+    const data = await response.json();
+    if (data && data.errors && data.errors.length > 0) {
+      const errorMessage = data.errors[0].message;
+      alert(`Registration failed: ${errorMessage}`);
+    } else {
+      alert(
+        "Something went wrong. Check if you filled the fields correctly and try again."
+      );
+    }
+  } catch (error) {
+    console.error("Error parsing response:", error);
     alert(
-      "something whent wrong, check if you filled the fields correctly and try again"
+      "Something went wrong. Check if you filled the fields correctly and try again."
     );
   }
 }
