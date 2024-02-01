@@ -1,3 +1,12 @@
+/**
+ * Updates the display of bids for a given auction item in the specified container.
+ *
+ * @param {HTMLElement} bidsContainer - The container element where the bids will be displayed.
+ * @param {object} item - The auction item object containing bid information.
+ * @param {Array} item.bids - An array of bids placed on the auction item.
+ * @param {number} item.bids.amount - The amount of credits in the bid.
+ * @param {string} item.bids.bidderName - The name of the bidder.
+ */
 export function updateBidDisplay(bidsContainer, item) {
   bidsContainer.innerHTML = ""; // Clear existing bids
 

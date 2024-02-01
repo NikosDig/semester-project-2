@@ -4,20 +4,31 @@ import { renderPosts } from "../renderHTML.mjs/renderPosts.mjs";
 import { logOUt } from "../storageJWT/logOut.mjs";
 import { searchByTitle } from "../searchFunction/searchByTitle.mjs";
 
-let offset = 100; // Initialize offset
+// Initialize offset for fetching additional posts
+let offset = 100;
+// Array to store all posts
 let allPosts = [];
 
+// Set loading message while posts are being fetched
 feedContainer.innerHTML = `
   <div class="loading-container justify-content-center">
     <div class="loading"></div>
     <div id="loading-text">loading</div>
   </div>`;
 
+/**
+ * Function to fetch and display all posts on the page.
+ *
+ * @returns {Array} - Array of post data.
+ */
 async function showAllThePostsOnThePage() {
   const loadingSpinner = document.querySelector(".loading-container");
   loadingSpinner.style.display = "flex";
+  // Fetch all posts
   const postData = await showPosts();
+  // Hide loading spinner
   loadingSpinner.style.display = "none";
+  // Render and append all posts
   return postData.map((x) => renderPosts(x, feedContainer));
 }
 
@@ -46,12 +57,13 @@ showMore.addEventListener("click", async () => {
   }
 });
 
-// search
+// Event listener for the search form
 const searchForm = document.getElementById("searchForm");
 
 searchForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
+  // Get search input
   const searchInput = document.getElementById("searchInput");
   const searchTerm = searchInput.value.trim();
 
@@ -59,6 +71,7 @@ searchForm.addEventListener("submit", async function (event) {
     try {
       // Fetch posts matching the search term
       const searchResults = await showPosts();
+      // Filter posts based on the search term
       const filteredResults = searchByTitle(searchTerm, searchResults);
 
       // Clear the feed container before rendering search results
@@ -75,7 +88,8 @@ searchForm.addEventListener("submit", async function (event) {
   }
 });
 
-// Initial load of posts
+// Initial load of posts when the page loads
 showAllThePostsOnThePage();
 
+// Log out the user
 logOUt();

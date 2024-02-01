@@ -5,7 +5,7 @@ import * as JWT from "./../storageJWT/index.mjs";
 const loginForm = document.querySelector(".loginForm");
 
 // test1000@stud.noroff.no
-// test1000
+// test1000test1000
 
 /**
  * main function that creates the profiile object which is added to the api call
