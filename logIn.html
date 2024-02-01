@@ -62,7 +62,7 @@
                 href="logIn.html"
                 title="Log out page"
                 class="text-decoration-none"
-                ><span class="text-white">Log out</span>
+                ><span class="text-white">Log in</span>
                 <img class="icon" src="assets/icons/logOutIcon.png" alt="" />
               </a>
             </div>
@@ -116,7 +116,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link btn btn-outline-danger" href="#"
+                  <a class="nav-link btn btn-outline-danger loggerOut" href="#"
                     >LOG OUT</a
                   >
                 </li>
@@ -142,7 +142,9 @@
             <h1 class="text-decoration-underline-info">Log in</h1>
           </div>
           <form
-            class="g-3 d-flex flex-column align-items-center mt-1 mb-5 bg-light p-4"
+            class="g-3 d-flex flex-column align-items-center mt-1 mb-5 bg-light p-4 loginForm"
+            action="/auth/login"
+            method="post"
           >
             <div class="col-11 col-md-6 my-3">
               <label for="logInEmail" class="form-label">Email</label>
@@ -150,6 +152,7 @@
                 type="text"
                 class="form-control"
                 id="logInEmail"
+                name="email"
                 placeholder="test@test.com"
                 value=""
                 required
@@ -161,6 +164,7 @@
                 type="password"
                 class="form-control"
                 id="logInPassword"
+                name="password"
                 placeholder="..."
                 value=""
                 required
@@ -219,5 +223,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="javascript/pagesMainFile/login.mjs"></script>
   </body>
 </html>

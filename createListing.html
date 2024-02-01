@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/icons/logo.png" />
-    <title>Sign up || Find</title>
+    <title>Create Listing || Find</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,7 +39,7 @@
                 />
               </a>
             </div>
-            <div class="align-self-center p-2 border-bottom">
+            <div class="align-self-center p-2">
               <a href="auctions.html" title="Auctions page">
                 <img
                   class="icon"
@@ -48,7 +48,7 @@
                 />
               </a>
             </div>
-            <div class="align-self-center p-2">
+            <div class="align-self-center p-2 border-bottom">
               <a href="profile.html" title="Profile page">
                 <img
                   class="icon"
@@ -102,16 +102,16 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" title="Profile page" href="profile.html"
+                  <a
+                    class="nav-link"
+                    aria-current="page"
+                    title="Profile page"
+                    href="profile.html"
                     >Profile</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    aria-current="page"
-                    title="Auctions page"
-                    href="auctions.html"
+                  <a class="nav-link" title="Auctions page" href="auctions.html"
                     >Auctions</a
                   >
                 </li>
@@ -136,87 +136,76 @@
       </nav>
     </header>
     <main>
-      <div class="container">
-        <div class="row d-flex flex-column align-items-center my-3">
-          <div class="col-10 text-center mt-5 mb-4">
-            <h1 class="text-decoration-underline-info">Sign Up</h1>
-          </div>
-          <form
-            class="g-3 d-flex flex-column align-items-center mt-1 mb-5 bg-light p-4 signUpForm"
-            action="/auth/register"
-            method="post"
-          >
-            <div class="col-11 col-md-6 my-3">
-              <label for="signUpEmail" class="form-label">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                id="signUpEmail"
-                name="email"
-                placeholder="test@test.com"
-                value=""
-                required
-              />
-            </div>
-            <div class="col-11 col-md-6 my-3">
-              <label for="signUpPassword" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="signUpPassword"
-                name="password"
-                placeholder="12345678"
-                value=""
-                required
-              />
-            </div>
-            <div class="col-11 col-md-6 my-3">
-              <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="signUpName"
-                name="name"
-                placeholder="John Doe"
-                value=""
-                required
-              />
-            </div>
-            <div class="col-11 col-md-6 my-3">
-              <label for="avatar" class="form-label">Avatar</label>
-              <input
-                type="text"
-                class="form-control"
-                id="signUpAvatar"
-                name="avatar"
-                placeholder="https://...(url of the picture)"
-                value=""
-                required
-              />
-            </div>
-            <div class="col-12">
-              <button
-                class="btn btn-custom mx-auto my-3 d-block px-5"
-                type="submit"
-              >
-                Sign Up
-              </button>
-            </div>
-            <div class="col-12 text-center m-2">
-              <h6>
-                You allready have an account? Sign in
-                <span
-                  ><a
-                    href="logIn.html"
-                    class="text-decoration-underline-info text-info"
-                    >here</a
-                  ></span
-                >
-              </h6>
-            </div>
-          </form>
+        <div class="col-12 my-4 py-4 h-15 w-100"></div>
+        <div>
+            <form
+              action="post"
+              class="border border-3 border-primary p-2 bg-light my-5 d-flex flex-column align-items-center m-auto"
+              name="createListingForm"
+              id="createListingForm"
+            >
+              <h2 class="text-center">Create new listing</h2>
+              <div class="col-11 col-md-6 my-3">
+                <label for="title" class="form-label">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  class="form-control text-center"
+                  id="title"
+                  placeholder="Your title of the post here"
+                  required
+                  title="A titel is needed to create a new post"
+                />
+              </div>
+              <div class="col-11 col-md-6 my-3">
+                <label for="feedImage" class="form-label">Media</label>
+                <input
+                  type="text"
+                  name="media"
+                  class="form-control text-center"
+                  id="media"
+                  placeholder="you need to provide a valid URL of a pcture"
+                  title="Not required.You need to provide a valid URL of any image"
+                />
+              </div>
+              <div class="col-11 col-md-6 my-3">
+                <label for="feedTags" class="form-label">Tags</label>
+                <input
+                  type="text"
+                  name="tags"
+                  class="form-control text-center"
+                  id="tags"
+                  placeholder="enter tags comma seperated"
+                  title="enter tags comma seperated"
+                />
+              </div>
+              <div class="col-11 col-md-6 my-3">
+                <label for="description" class="form-label">Description</label>
+                <input
+                  type="text"
+                  name="description"
+                  class="form-control text-center"
+                  id="description"
+                  placeholder="Your description of the post here"
+                  required
+                  title="A description is needed to create a new post"
+                />
+              </div>
+              <div class="col-11 col-md-6 my-3">
+                  <label for="endsAt" class="form-label">Ends At</label>
+                  <input
+                    type="datetime-local"
+                    name="endsAt"
+                    class="form-control text-center"
+                    id="endsAt"
+                    required
+                  />
+                </div>
+              <div class="input-group">
+                <button type="submit" class="d-block m-auto btn btn-custom rounded-4"">Create</button>
+              </div>
+            </form>
         </div>
-      </div>
     </main>
     <footer class="d-block text-bg-primary">
       <section
@@ -253,6 +242,9 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="javascript/pagesMainFile/signUp.mjs"></script>
+    <script
+      type="module"
+      src="javascript/pagesMainFile/createListing.mjs"
+    ></script>
   </body>
 </html>

@@ -62,7 +62,7 @@
                 href="logIn.html"
                 title="Log out page"
                 class="text-decoration-none"
-                ><span class="text-white">Log out</span>
+                ><span class="text-white">Log in</span>
                 <img class="icon" src="assets/icons/logOutIcon.png" alt="" />
               </a>
             </div>
@@ -116,17 +116,18 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link btn btn-outline-danger" href="#"
+                  <a class="nav-link btn btn-outline-danger loggerOut" href="#"
                     >LOG OUT</a
                   >
                 </li>
               </ul>
-              <form class="d-flex mt-3" role="search">
+              <form class="d-flex mt-3" role="search" id="searchForm">
                 <input
                   class="form-control me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  id="searchInput"
                 />
                 <button class="btn btn-success" type="submit">Search</button>
               </form>
@@ -142,207 +143,23 @@
             <h1 class="text-center text-decoration-underline-info">Auctions</h1>
           </div>
           <div
-            class="row row-cols-1 row-cols-md-4 g-4 text-dark text-center mb-5 d-flex justify-content-center align-items-center"
-          >
-            <div class="col">
-              <div class="card">
-                <a href="auctionItem.html">
-                  <img
-                    src="assets/images/heading_img-1.png"
-                    class="card-img-top"
-                    alt="pretty statue"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Current bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="auctionItem.html"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="assets/images/heading_img-1.png"
-                  class="card-img-top"
-                  alt="pretty statue"
-                />
-                <div class="card-body">
-                  <h5 class="card-title bg-dark text-white p-1">
-                    3w 5d 10h 33m
-                  </h5>
-                  <h5 class="card-title">Fine statue</h5>
-                  <p class="card-text">Curent bid: 10 nok</p>
-                </div>
-                <div class="card-footer">
-                  <a
-                    href="#"
-                    title="bid now"
-                    class="btn btn-custom rounded-4 text-uppercase w-50"
-                    >Bid now
-                  </a>
-                </div>
-              </div>
+            class="row row-cols-1 row-cols-md-4 g-4 text-dark text-center mb-5 d-flex justify-content-center align-items-center feedContainer"
+          ></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="btn btn-custom rounded-4 text-uppercase w-25 d-block m-auto showMore"
+            >
+              <p>show more</p>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer class="d-block mt-3 p-3 text-bg-primary">
+    <footer class="d-block p-3 text-bg-primary m-auto text-center">
       <section
         class="d-flex flex-column flex-sm-row container justify-content-between align-items-center"
       >
@@ -377,5 +194,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="javascript/pagesMainFile/auctions.mjs"></script>
   </body>
 </html>

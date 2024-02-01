@@ -62,7 +62,7 @@
                 href="logIn.html"
                 title="Log out page"
                 class="text-decoration-none"
-                ><span class="text-white">Log out</span>
+                ><span class="text-white">Log in</span>
                 <img class="icon" src="assets/icons/logOutIcon.png" alt="" />
               </a>
             </div>
@@ -116,7 +116,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link btn btn-outline-danger" href="#"
+                  <a class="nav-link btn btn-outline-danger loggerOut" href="#"
                     >LOG OUT</a
                   >
                 </li>
@@ -137,30 +137,30 @@
     </header>
     <main>
       <div class="container">
-        <div class="row my-5 d-flex">
+        <div class="row my-5 d-flex userLogedIn">
           <div
-            class="col-12 d-flex flex-column flex-sm-row align-items-center gap-2 my-5"
+            class="col-12 d-flex flex-column flex-sm-row align-items-center gap-2 my-5 text-break"
           >
-            <div class="col-4 text-center text-md-start h3">
-              <h1 class="h2">John Doe</h1>
+            <div class="col-4 text-center h3">
+              <h1 class="h2 profileName"></h1>
             </div>
             <div class="col-4">
               <img
-                src="assets/images/rowan-atkinson.webp"
-                class="img-fluid rounded-circle mx-auto d-block"
+                src=""
+                class="img-fluid rounded-circle mx-auto d-block profileImage"
                 alt=""
               />
             </div>
             <div class="col-4 text-center text-md-end h3">
-              <h2 class="h2">test@test.com</h2>
+              <h2 class="h2 profileEmail text-center"></h2>
             </div>
           </div>
-          <div class="col-12 text-center py-4">
+          <div class="col-12 text-center my-2">
             <h3 class="text-uppercase text-center h2">
-              credits: <span>700</span>
+              credits: <span class="profileCredits"></span>
             </h3>
           </div>
-          <div class="col-12 text-center py-4">
+          <div class="col-12 col-sm-6 text-center my-2">
             <a href="editProfile.html">
               <h4 class="text-uppercase h2">
                 <span
@@ -173,10 +173,31 @@
               </h4>
             </a>
           </div>
+          <div class="col-12 col-sm-6 text-center my-2">
+            <a href="editProfile.html">
+              <h4 class="text-uppercase h2">
+                <span
+                  ><a href="createListing.html" class="m-2"
+                    ><img
+                      src="assets/icons/gear.png"
+                      class="img-fluid"
+                      alt="edit profile" /></a></span
+                >Create listing
+              </h4>
+            </a>
+          </div>
+        </div>
+        <div class="col-12 userNotLogedIn d-none">
+          <h2 class="text-center mt-5 pt-5">
+            You need to log in to see your profile
+          </h2>
+          <h3 class="text-center mt-3 pt-3">
+            Log in <a href="logIn.html" class="btn btn-custom">here</a>
+          </h3>
         </div>
       </div>
     </main>
-    <footer class="d-block text-bg-primary sticky-custom-bottom">
+    <footer class="d-block text-bg-primary sticky-custom-bottom mt-5">
       <section
         class="d-flex flex-row flex-sm-row container justify-content-between align-items-center"
       >
@@ -211,5 +232,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="javascript/pagesMainFile/profile.mjs"></script>
   </body>
 </html>

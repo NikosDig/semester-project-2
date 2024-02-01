@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="dist/css/styles.css" />
   </head>
   <body class="text-bg-primary min-vh-100 d-flex flex-column">
-    <header class="py-3 sticky-top shadow">
+    <header class="py-3 shadow">
       <nav class="navbar navbar-dark bg-white fixed-top bg-opacity-10">
         <div class="container-fluid d-flex flex-row">
           <a class="navbar-brand" href="index.html" title="Home page">
@@ -62,7 +62,7 @@
                 href="logIn.html"
                 title="Log out page"
                 class="text-decoration-none"
-                ><span class="text-white">Log out</span>
+                ><span class="text-white logOutButton">Log in</span>
                 <img class="icon" src="assets/icons/logOutIcon.png" alt="" />
               </a>
             </div>
@@ -116,7 +116,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link btn btn-outline-danger" href="#"
+                  <a class="nav-link btn btn-outline-danger loggerOut" href="#"
                     >LOG OUT</a
                   >
                 </li>
@@ -202,112 +202,15 @@
             </div>
             <!-- cards section -->
             <div
-              class="row row-cols-1 row-cols-md-4 g-4 text-dark text-center mb-5 d-flex justify-content-center align-items-center"
-            >
-              <div class="col">
-                <div class="card">
-                  <img
-                    src="assets/images/heading_img-1.png"
-                    class="card-img-top"
-                    alt="pretty statue"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title bg-dark text-white p-1">
-                      3w 5d 10h 33m
-                    </h5>
-                    <h5 class="card-title">Fine statue</h5>
-                    <p class="card-text">Current bid: 10 nok</p>
-                  </div>
-                  <div class="card-footer">
-                    <a
-                      href="#"
-                      title="bid now"
-                      class="btn btn-custom rounded-4 text-uppercase w-50"
-                      >Bid now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card">
-                  <img
-                    src="assets/images/heading_img-1.png"
-                    class="card-img-top"
-                    alt="pretty statue"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title bg-dark text-white p-1">
-                      3w 5d 10h 33m
-                    </h5>
-                    <h5 class="card-title">Fine statue</h5>
-                    <p class="card-text">Curent bid: 10 nok</p>
-                  </div>
-                  <div class="card-footer">
-                    <a
-                      href="#"
-                      title="bid now"
-                      class="btn btn-custom rounded-4 text-uppercase w-50"
-                      >Bid now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card">
-                  <img
-                    src="assets/images/heading_img-1.png"
-                    class="card-img-top"
-                    alt="pretty statue"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title bg-dark text-white p-1">
-                      3w 5d 10h 33m
-                    </h5>
-                    <h5 class="card-title">Fine statue</h5>
-                    <p class="card-text">Curent bid: 10 nok</p>
-                  </div>
-                  <div class="card-footer">
-                    <a
-                      href="#"
-                      title="bid now"
-                      class="btn btn-custom rounded-4 text-uppercase w-50"
-                      >Bid now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card">
-                  <img
-                    src="assets/images/heading_img-1.png"
-                    class="card-img-top"
-                    alt="pretty statue"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title bg-dark text-white p-1">
-                      3w 5d 10h 33m
-                    </h5>
-                    <h5 class="card-title">Fine statue</h5>
-                    <p class="card-text">Curent bid: 10 nok</p>
-                  </div>
-                  <div class="card-footer">
-                    <a
-                      href="#"
-                      title="bid now"
-                      class="btn btn-custom rounded-4 text-uppercase w-50"
-                      >Bid now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <a
-                  href="auctions.html"
-                  class="btn btn-custom rounded-4 d-block mx-auto my-5 w-75"
-                >
-                  More Listings</a
-                >
-              </div>
+              class="row row-cols-1 row-cols-md-4 g-4 text-dark text-center mb-5 mx-auto d-flex justify-content-center align-items-center fourPostsContainer"
+            ></div>
+            <div class="col-12 col-md-4 d-block m-auto">
+              <a
+                href="auctions.html"
+                class="btn btn-custom rounded-4 d-block mx-auto my-5 w-75"
+              >
+                More Listings</a
+              >
             </div>
             <!-- card section ends -->
           </div>
@@ -361,5 +264,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="javascript/pagesMainFile/index.mjs"></script>
   </body>
 </html>
