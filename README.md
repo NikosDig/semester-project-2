@@ -39,12 +39,12 @@ This project covers the frontend application for an auction site. Users can regi
 
 ## Required Links
 
-- [Gantt chart for project timing]()
-- [Design prototype]()
-- [Style guide]()
-- [Kanban project board]()
-- [Repository link]()
-- [Hosted application demo link]()
+- [Gantt chart for project timing](https://trello.com/b/EhJgbwVJ/semester-project-2)
+- [Design prototype](https://xd.adobe.com/view/6aafc3e5-f9e1-4b48-83fd-865db3efb1d1-3ffc/)
+- [Style guide](https://xd.adobe.com/view/6aafc3e5-f9e1-4b48-83fd-865db3efb1d1-3ffc/)
+- [Kanban project board](https://trello.com/b/EhJgbwVJ/semester-project-2)
+- [Repository link](https://github.com/NikosDig/semester-project-2)
+- [Hosted application demo link](https://findauction.netlify.app/)
 
 ## Approved Resources
 
