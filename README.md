@@ -1,5 +1,8 @@
 # Auction Site Frontend
 
+![FIND](/assets/images/find.png)
+
+
 An auction site frontend where users can add items to be bid on and bid on items put up for auction.
 
 ## Table of Contents
